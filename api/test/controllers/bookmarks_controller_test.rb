@@ -8,8 +8,8 @@ class BookmarksControllerTest < ActionController::TestCase
   end
 
   test "returns not ok if bookmark is not created" do
-    # post :create, bookmark: { }
-    post :create, bookmark: { title: nil, url: nil }
+    post :create, bookmark: { }
+    # post :create, bookmark: { title: nil, url: nil }
 
     assert_response 422
   end

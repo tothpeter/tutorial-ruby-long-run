@@ -5,7 +5,12 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = CreateBookmark.new(bookmark_params).create
+
+    begin
+      @bookmark = CreateBookmark.new(bookmark_params).create
+    rescue ActionController::ParameterMissing => e
+      return head 422
+    end
 
     if @bookmark
       head 201

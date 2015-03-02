@@ -5,12 +5,18 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmarks = CreateBookmark.new(params[:bookmark]).create
+    @bookmark = CreateBookmark.new(bookmark_params).create
 
     if @bookmark
       head 201
     else
       head 422
     end
+  end
+
+  private 
+  
+  def bookmark_params
+    params.require(:bookmark).permit(:title, :url)
   end
 end

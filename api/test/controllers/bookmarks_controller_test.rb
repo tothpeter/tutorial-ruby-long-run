@@ -21,4 +21,11 @@ class BookmarksControllerTest < ActionController::TestCase
 
     assert_response 204 # No content
   end
+
+  test "return ok if a record is removed" do
+    bookmark = Bookmark.create! title: "Bookmark name", url: "http://tomaaa.com"
+    delete :destroy, id: bookmark.id
+
+    assert_response 204
+  end
 end

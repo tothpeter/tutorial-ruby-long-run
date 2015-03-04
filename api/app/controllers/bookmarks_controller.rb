@@ -31,6 +31,17 @@ class BookmarksController < ApplicationController
       head 422
     end
   end
+
+  def destroy
+    service = RemoveBookmark.new id: params[:id]
+
+    if service.remove
+      head 204
+    else
+      head 422
+    end
+  end
+
   private 
   
   def bookmark_params

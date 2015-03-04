@@ -19,6 +19,18 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def update
+    # data = bookmark_params
+    # data[:id] = params[:id]
+
+    service = UpdateBookmark.new params[:id], bookmark_params
+
+    if service.update
+      head 204
+    else
+      head 422
+    end
+  end
   private 
   
   def bookmark_params

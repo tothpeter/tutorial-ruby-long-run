@@ -1,19 +1,22 @@
-require "httparty"
-
-class CreateBookmark
+class CreateBookmark < Service
   def initialize data
     @title = data[:title]
     @url = data[:url]
   end
 
   def create
-    response = HTTParty.post "http://localhost:3000/bookmarks", body: {
+    response = request "/bookmarks", :post, body: post_data
+    response.code == 201
+  end
+
+  private 
+  
+  def post_data
+    {
       bookmark: {
         title: @title,
         url: @url
       }
     }
-
-    response.code == 201
   end
 end

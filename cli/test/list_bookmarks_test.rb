@@ -1,5 +1,6 @@
 require 'minitest_helper'
 require 'cli/services/list_bookmarks'
+require 'cli/bookmark'
 
 describe ListBookmarks do
   it "retrives a list of bookmarks" do

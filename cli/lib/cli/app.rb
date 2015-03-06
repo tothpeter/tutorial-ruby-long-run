@@ -3,7 +3,7 @@ require 'cli'
 
 module Cli
   class App < Thor
-    desc :list, "List bookmarks"
+    desc :list, "Lists bookmarks"
     def list
       list = ListBookmarks.new.list
       list.each do |bookmark|

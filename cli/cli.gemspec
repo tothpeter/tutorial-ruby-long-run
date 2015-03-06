@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest"
 
   spec.add_runtime_dependency "thor"
+  spec.add_runtime_dependency "httparty"
 end

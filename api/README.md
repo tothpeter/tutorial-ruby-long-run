@@ -2,6 +2,10 @@
 
 Dainty is an API for storing bookmarks.
 
+## Run
+
+- `bundle exec cli list`
+
 ## Methods
 
 ### List bookmarks

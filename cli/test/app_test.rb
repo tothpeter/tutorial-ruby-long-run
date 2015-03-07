@@ -11,4 +11,9 @@ describe Cli::App do
     output, error = capture_io { Cli::App.start %w(create --title=Title --url=http://tomaaa.com) }.first # stdout
     output.must_include "Created bookmark for 'Title'."
   end
+
+  it "updates a bookmark" do
+    output, error = capture_io { Cli::App.start %w(update --id=980191122 --title=Title2 --url=http://tomaaa.hu) } # stdout
+    output.must_include "Updated bookmark, it is now 'Title2'."
+  end
 end

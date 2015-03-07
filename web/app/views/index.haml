@@ -16,3 +16,7 @@
           = succeed ")" do
             = bookmark.id
         = bookmark.title
+
+      %form.inline{action: "/bookmarks/#{bookmark.id}", method: :post}
+        %input{type: "hidden", name: "_method", value: "delete"}
+        %button.tiny.delete Delete

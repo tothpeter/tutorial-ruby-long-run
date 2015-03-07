@@ -16,4 +16,12 @@ describe Cli::App do
     output, error = capture_io { Cli::App.start %w(update --id=980191122 --title=Title2 --url=http://tomaaa.hu) } # stdout
     output.must_include "Updated bookmark, it is now 'Title2'."
   end
+
+  it "removes a bookmark" do
+    create_service = CreateBookmark.new title: "Removable", url: "http://tomaaa.com"
+    create_service.create
+
+    output, error = capture_io { Cli::App.start ["remove", create_service.bookmark.id] } # stdout
+    output.must_include "Removed bookmark."
+  end
 end

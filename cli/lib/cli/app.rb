@@ -31,7 +31,7 @@ module Cli
       end
     end
 
-    desc :update, "Update a bookmark"
+    desc :update, "Updates a bookmark"
     option :id, required: true
     option :title
     option :url
@@ -44,6 +44,15 @@ module Cli
 
       if service.update
         puts "Updated bookmark, it is now '#{options[:title]}'."
+      end
+    end
+
+    desc :remove, "Removes a bookmark"
+    def remove id
+      service = RemoveBookmark.new id
+
+      if service.remove
+        puts "Removed bookmark."
       end
     end
   end

@@ -1,7 +1,7 @@
 module Cli
   class RemoveBookmark < Service
-    def initialize options
-      @id = options[:id]
+    def initialize id
+      @id = id
     end
 
     def remove

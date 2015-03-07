@@ -7,13 +7,13 @@ class BookmarksController < ApplicationController
   def create
 
     begin
-      @bookmark = CreateBookmark.new(bookmark_params).create
+      @service = CreateBookmark.new bookmark_params
     rescue ActionController::ParameterMissing => e
       return head 422
     end
 
-    if @bookmark
-      head 201
+    if @service.create
+      render json: @service.bookmark, status: 201
     else
       head 422
     end

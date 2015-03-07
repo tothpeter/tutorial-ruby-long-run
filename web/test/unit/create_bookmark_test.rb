@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'services/create_bookmark'
 
 describe CreateBookmark do
   it "creates a new bookmark" do

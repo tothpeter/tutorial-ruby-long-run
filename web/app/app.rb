@@ -1,5 +1,6 @@
 class App < Sinatra::Base
   get "/" do
-    # List bookmarks
+    @bookmarks = ListBookmarks.new.list
+    haml :index
   end
 end

@@ -1,2 +1,2 @@
 require "bundler"
-Bundler.require :default
+Bundler.require

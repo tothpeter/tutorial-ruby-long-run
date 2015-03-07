@@ -1,0 +1,10 @@
+%h1 List of bookmarks
+
+%ul
+  - @bookmarks.each do |bookmark|
+    %li.bookmark{id: "bookmark-#{bookmark.id}"}
+      %a{href: bookmark.url}
+        = precede "(" do
+          = succeed ")" do
+            = bookmark.id
+        = bookmark.title

@@ -1,4 +1,12 @@
 require "init"
+require "app"
 
-Bundler.require
 require "minitest/autorun"
+
+Bundler.require :test
+
+class MiniTest::Spec
+  include Capybara::DSL
+end
+
+Capybara.app = App

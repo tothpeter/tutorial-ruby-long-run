@@ -1,5 +1,13 @@
 %h1 List of bookmarks
 
+%form{action: "/bookmarks", method: :POST}
+  %p
+    %input{:type => "text", :name => "bookmark[title]", placeholder: 'Title'}
+  %p
+    %input{:type => "text", :name => "bookmark[url]", placeholder: 'URL'}
+  %p
+    %button.tiny Create bookmark
+
 %ul
   - @bookmarks.each do |bookmark|
     %li.bookmark{id: "bookmark-#{bookmark.id}"}

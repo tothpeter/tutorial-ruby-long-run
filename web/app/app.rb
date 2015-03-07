@@ -3,4 +3,11 @@ class App < Sinatra::Base
     @bookmarks = ListBookmarks.new.list
     haml :index
   end
+
+  post "/bookmarks" do
+    service = CreateBookmark.new params[:bookmark]
+    service.create
+
+    redirect "/"
+  end
 end

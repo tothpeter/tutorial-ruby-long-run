@@ -6,6 +6,6 @@ class Service
   private 
   
   def host
-    "http://localhost:3000"
+    "http://#{Cli::Config.host}"
   end
 end

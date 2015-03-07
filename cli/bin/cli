@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'cli/app'
+Cli::Config.load :production
 Cli::App.start ARGV
